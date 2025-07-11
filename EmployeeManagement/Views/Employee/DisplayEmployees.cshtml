@@ -1,0 +1,138 @@
+﻿@model IEnumerable<EmployeeManagement.Models.EmpDept>
+@{
+    ViewBag.Title = "DisplayEmployees";
+}
+
+<style>
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: #f0f2f5;
+    }
+
+    h2 {
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 24px;
+/*        letter-spacing: 1px;
+*/
+    }
+
+    table {
+        width: 85%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        font-size: 15px;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    thead {
+        background-color: #FF9800;
+        color: white;
+        font-weight: 600;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    a {
+        text-decoration: none;
+        margin-right: 8px;
+        font-weight: 500;
+        color: #007BFF;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    .add-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+        .add-button:hover {
+            background-color: #45a049;
+        }
+
+</style>
+
+
+<h2>Employee Details</h2>
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>@Html.DisplayNameFor(E => E.EId)</th>
+            <th>@Html.DisplayNameFor(E => E.Ename)</th>
+            <th>@Html.DisplayNameFor(E => E.Job) </th>
+            <th>@Html.DisplayNameFor(E => E.Salary)</th>
+            <th>@Html.DisplayNameFor(E => E.Did)</th>
+            <th>@Html.DisplayNameFor(E => E.Dname) </th>
+            <th>@Html.DisplayNameFor(E => E.Location)</th>
+            <th>Actions</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach(var Employee in Model)
+            {
+                <tr>
+
+                    <td>@Html.DisplayFor(E => Employee.EId)</td>
+                    <td>@Html.DisplayFor(E => Employee.Ename) </td>
+                    <td>@Html.DisplayFor(E => Employee.Job)</td>
+                    <td>@Html.DisplayFor(E => Employee.Salary)</td>
+                    <td>@Html.DisplayFor(E => Employee.Did) </td>
+                    <td>@Html.DisplayFor(E => Employee.Dname)</td>
+                    <td>@Html.DisplayFor(E => Employee.Location)</td>
+                    <td>
+                        @Html.ActionLink("👁 View", "DisplayEmployee", new {Eid = Employee.EId})
+                        @Html.ActionLink("📝 Edit", "EditEmployee", new {Eid = Employee.EId})
+                        @Html.ActionLink("🚮 Delete", "DeleteEmployee", new {Eid = Employee.EId}, new { Onclick="return confirm('Are you sure of deleting the record?')", style = "color:red;"})
+                    </td>
+
+                </tr>
+            }
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td>@Html.ActionLink("+ Add New Employee", "AddEmployee", null, new {@class = "add-button"})</td>  @* (Text, Action, RouteValues = null, HTML Attributes: CSS class) *@
+        </tr>
+    </tfoot>
+
+</table>
+
+
