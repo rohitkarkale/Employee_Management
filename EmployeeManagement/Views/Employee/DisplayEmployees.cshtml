@@ -60,18 +60,15 @@
     }
 
 
-    td a {
-        padding: 6px 12px;
-        border-radius: 5px;
-        font-size: 13px;
-        display: inline-block;
-        background-color: #f5f5f5;
-       
+    a {
+        text-decoration: none;
+        margin-right: 8px;
+        font-weight: 500;
+        color: #007BFF;
     }
 
-        td a:hover {
-            background-color: #e0e0e0;
-            text-decoration: none;
+        a:hover {
+            text-decoration: underline;
         }
 
 
@@ -122,14 +119,15 @@
                     <td>@Html.DisplayFor(E => Employee.EId)</td>
                     <td>@Html.DisplayFor(E => Employee.Ename) </td>
                     <td>@Html.DisplayFor(E => Employee.Job)</td>
-                    <td>@Html.DisplayFor(E => Employee.Salary)</td>
+                    <td>₹ @String.Format("{0:N0}", Employee.Salary)</td>
                     <td>@Html.DisplayFor(E => Employee.Did) </td>
                     <td>@Html.DisplayFor(E => Employee.Dname)</td>
                     <td>@Html.DisplayFor(E => Employee.Location)</td>
                     <td>
-                        @Html.ActionLink("👁 View", "DisplayEmployee", new {Eid = Employee.EId}, new {@class = "btn btn-sm btn-info text-white" })
-                        @Html.ActionLink("📝 Edit", "EditEmployee", new {Eid = Employee.EId}, new {@class = "btn btn-sm btn-warning text-dark" })
-                        @Html.ActionLink("🚮 Delete", "DeleteEmployee", new {Eid = Employee.EId}, new {@class = "btn btn-sm btn-danger", Onclick="return confirm('Are you sure of deleting the record?')", style = "color:red;"})
+                        @Html.ActionLink("👁 View", "DisplayEmployee", new { Eid = Employee.EId })
+                        @Html.ActionLink("✏ Edit", "EditEmployee", new { Eid = Employee.EId })
+                        @Html.ActionLink("🗑 Delete", "DeleteEmployee", new { Eid = Employee.EId },
+                        new { onclick = "return confirm('Are you sure of deleting the record?')", style = "color:red;" })
                     </td>
 
                 </tr>
