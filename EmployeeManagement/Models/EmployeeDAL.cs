@@ -33,7 +33,7 @@ namespace EmployeeManagement.Models
             {
                 records = (from E in dc.Employees
                            join D in dc.Departments on E.Did equals D.Did
-                           where E.Status == true // Even though the method accepts any Status, this code hardcodes true. So even if you pass false, it won't return inactive employees. This is likely a mistake.
+                           where E.Status == status // (if true) Even though the method accepts any Status, this code hardcodes true. So even if you pass false, it won't return inactive employees. This is likely a mistake.
                            select new
                            {
                                E.Eid,

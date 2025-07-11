@@ -1,33 +1,49 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Employee Management System";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+<main class="mt-4">
+    <section class="text-center mb-5">
+        <h1 id="title" class="display-4 text-success">
+            <i class="bi bi-people-fill"></i> Employee Management System
+        </h1>
+        <p class="lead">Manage employees, departments, and records efficiently with this simple and powerful ASP.NET MVC application.</p>
+        <p>
+            <a href="@Url.Action("DisplayEmployees", "Employee")" class="btn btn-success btn-lg">
+                <i class="bi bi-person-plus-fill"></i> View Employees
+            </a>
+        </p>
     </section>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
+    <div class="row text-center">
+        <section class="col-md-4 mb-4">
+            <h2><i class="bi bi-play-circle-fill text-primary"></i> Getting Started</h2>
+            <p>Learn how ASP.NET MVC helps you build dynamic, responsive, and scalable web applications.</p>
             <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
+                <a class="btn btn-outline-primary" href="https://go.microsoft.com/fwlink/?LinkId=301865" target="_blank">
+                    Learn More &raquo;
+                </a>
             </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
         </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+        <section class="col-md-4 mb-4">
+            <h2><i class="bi bi-box-seam text-warning"></i> NuGet Packages</h2>
+            <p>Discover and manage libraries easily using NuGet to enhance your ASP.NET projects.</p>
+            <p>
+                <a class="btn btn-outline-warning" href="https://go.microsoft.com/fwlink/?LinkId=301866" target="_blank">
+                    Learn More &raquo;
+                </a>
+            </p>
         </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+        <section class="col-md-4 mb-4">
+            <h2><i class="bi bi-cloud-arrow-up text-info"></i> Hosting</h2>
+            <p>Deploy your web application on a hosting provider that suits your needs and budget.</p>
+            <p>
+                <a class="btn btn-outline-info" href="https://go.microsoft.com/fwlink/?LinkId=301867" target="_blank">
+                    Learn More &raquo;
+                </a>
+            </p>
         </section>
     </div>
 </main>
