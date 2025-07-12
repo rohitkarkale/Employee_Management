@@ -28,12 +28,19 @@ namespace EmployeeManagement.Controllers
             emp.Departments = obj.GetDepartments();
             return View(emp);
         }
-
         [HttpPost]
-        public RedirectToRouteResult AddEmployee(EmpDept emp)  // Handles form submission and adds the employee to the database
+        public ActionResult AddEmployee(EmpDept emp)
         {
-            obj.Employee_Insert(emp);  // Insert into DB
-            return RedirectToAction("DisplayEmployees");  // Go back to the employee list
+            if (!ModelState.IsValid)
+            {
+                emp.Departments = obj.GetDepartments(); // repopulate dropdown
+                return View(emp); // return the view with validation messages
+            }
+
+            obj.Employee_Insert(emp); // insert only when valid
+            TempData["Success"] = "Employee added successfully!";
+            return RedirectToAction("DisplayEmployees");
         }
+
     }
 }

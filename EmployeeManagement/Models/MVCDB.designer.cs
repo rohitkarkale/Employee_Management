@@ -91,7 +91,7 @@ namespace EmployeeManagement.Models
 		
 		private string _Job;
 		
-		private decimal _Salary;
+		private decimal  _Salary;
 		
 		private System.Nullable<int> _Did;
 		

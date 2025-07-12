@@ -1,0 +1,154 @@
+﻿@model EmployeeManagement.Models.EmpDept
+@{
+    ViewBag.Title = "AddEmployee";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f4f7f9;
+    }
+
+    h2 {
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+        padding: 25px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    div.form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        padding: 10px 20px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+    input[type="reset"] {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        input[type="reset"]:hover {
+            background-color: #5a6268;
+        }
+
+    .back-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .back-link a {
+            color: #007BFF;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+            .back-link a:hover {
+                text-decoration: underline;
+            }
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-buttons {
+        grid-column: span 2;
+    }
+</style>
+
+
+
+<h2>Add New Employee</h2>
+
+@using (Html.BeginForm("AddEmployee", "Employee"))
+{
+   
+
+    <div class="form-group">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.LabelFor(E => E.Ename)
+        @Html.TextBoxFor(E => E.Ename, new { placeholder = "Enter employee name" })
+        @Html.ValidationMessageFor(E => E.Ename, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(E => E.Job)
+        @Html.TextBoxFor(E => E.Job, new { placeholder = "Enter job title" })
+        @Html.ValidationMessageFor(E => E.Job, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(E => E.Salary)
+        @Html.TextBoxFor(E => E.Salary, new { placeholder = "Enter salary (₹)" })
+        @Html.ValidationMessageFor(E => E.Salary, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Department")
+        @Html.DropDownListFor(E => E.Did, Model.Departments, "-Select Department-", new { @class = "form-control" })
+        @Html.ValidationMessageFor(E => E.Did, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-buttons">
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" name="btnReset" />
+    </div>
+}
+
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <a href="@Url.Action("DisplayEmployees", "Employee")" style="color: white; text-decoration: none;">&laquo; Back</a>
+</div>
+
+
+
+
