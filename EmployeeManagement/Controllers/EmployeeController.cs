@@ -16,7 +16,6 @@ namespace EmployeeManagement.Controllers
             return View(obj.GetEmployees(true));
         }
 
-
         public ViewResult DisplayEmployee(int Eid)
         {
             return View(obj.GetEmployee(Eid,true));
