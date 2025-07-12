@@ -134,5 +134,19 @@ namespace EmployeeManagement.Models
 
             return Emp;
         }
+
+        public void Employee_Insert(EmpDept obj)
+        {
+            Employee Emp = new Employee
+            {
+                Ename = obj.Ename,
+                Job = obj.Job,
+                Salary = obj.Salary,
+                Did = obj.Did,
+                Status = true
+            };
+            dc.Employees.InsertOnSubmit(Emp);
+            dc.SubmitChanges();
+        }
     }
 }
